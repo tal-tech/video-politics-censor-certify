@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # image-politics-censor
 =======
 # image-politics-nums-censor
@@ -8,3 +9,6 @@
 =======
 # image-politics-nums-censor
 >>>>>>> 72d19640d2debe55c274b48fa36214237a008962
+=======
+# video-politics-censor-certify
+>>>>>>> 867aa5f647890a563011e7aaa644b050bbcefcf5

@@ -147,7 +147,23 @@ class Interface():
             return len(res['data'])
         return 0
     
+    def query_certify_video(self, img, lib_id=0, face_threshold=config.FACE_THRESHOLD):
+        # 视频涉政人物检测可信度
+        video_path = "input.mp4"
+        image_dir = "images"
+        cmd = "ffmpeg -i %s -vf fps=1 %s/out%%d.jpg" % (video_path,image_dir)
+        os.system(cmd)
 
+        files = os.listdir(image_dir)
+        ans = 0
+        for file in files:
+            tmp1 = self.query(file, 0)
+            if(tmp1['code'] == 0):
+                tmp2 = tmp2['data']
+                for k, v in tmp2:
+                    ans += v
+        
+        return float(ans) / float(len(files))
 
     
 
@@ -159,8 +175,8 @@ if __name__ == "__main__":
     img_path = '../examples/imgs/习近平/18870.jpg'
     img = cv2.imread(img_path)
     print(interface.query(img,0))
-    print(interface.query_image_nums(img,0))
-    print(interface.query_video(img,0))
+    print(interface.query_certify_video(img,0))
+
     
     img_path = '../examples/00001.jpg'
     
