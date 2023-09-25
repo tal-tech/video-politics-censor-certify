@@ -139,8 +139,17 @@ class Interface():
             result["data"] = ""
 
         return result
+    
+    def query_image_nums(self, img, lib_id=0, face_threshold=config.FACE_THRESHOLD):
+        # 图片涉政人物数量检测
+        res = self.query(img,0)
+        if(res['code'] == 0):
+            return len(res['data'])
+        return 0
+    
 
 
+    
 
 if __name__ == "__main__":
     
@@ -150,6 +159,8 @@ if __name__ == "__main__":
     img_path = '../examples/imgs/习近平/18870.jpg'
     img = cv2.imread(img_path)
     print(interface.query(img,0))
+    print(interface.query_image_nums(img,0))
+    print(interface.query_video(img,0))
     
     img_path = '../examples/00001.jpg'
     
